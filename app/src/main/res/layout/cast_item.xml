@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/castCardView"
+    android:layout_width="135dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="10dp"
+    android:layout_height="270dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/castImage"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:paddingTop="20dp"
+            android:scaleType="center" />
+
+        <TextView
+            android:id="@+id/castName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/castImage"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="2"
+            android:text="Tatiana Maslanya"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/realName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/castName"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:maxLines="3"
+            android:text="Jenifer Walters / She Hulk"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/trailerLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp">
+
+        <TextView
+            android:id="@+id/trailerText"
+            android:text="Play Trailer"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+<!--                <Button-->
+<!--                    android:id="@+id/close_button"-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:elevation="5dp"-->
+<!--                    android:background="@drawable/ic_round_close_24" />-->
+
+        </RelativeLayout>
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/new_youtube_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:showFullScreenButton="false"
+            app:autoPlay="false"/>
+
+</LinearLayout>
+
+
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+</LinearLayout>
+-->
+

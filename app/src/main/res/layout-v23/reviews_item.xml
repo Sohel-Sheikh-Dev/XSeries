@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/castCardView1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/avatarCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp">
+
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/nameReview"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/avatarCard"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:paddingStart="15dp"
+                android:paddingEnd="25dp">
+
+                <TextView
+                    android:id="@+id/authorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@+id/avatarCard"
+                    android:maxLines="2"
+                    android:text="A review by garetthmb"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/cardName1"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:layout_toEndOf="@+id/avatar"-->
+                <!--                    android:fontFamily="sans-serif-black"-->
+                <!--                    android:text="A review by XYZ"-->
+                <!--                    android:textColor="@color/black" />-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/authorName"
+                    android:layout_toEndOf="@+id/avatarCard"
+                    android:text="on January 31,2021"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/UpButton"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bgposter"
+                android:visibility="gone"
+                android:drawableStart="@drawable/ic_baseline_keyboard_arrow_up_24"
+                android:padding="12dp" />
+
+            <Button
+                android:id="@+id/dropdownButton"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bgposter"
+                android:drawableStart="@drawable/ic_down_arrow"
+                android:padding="12dp" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/detailedReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/detailedReviewResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="When audiences last saw Eddie Brock (Tom Hardy); the journalist and his parasitic symbiote Venom; had just saved the day and cemented their unusual bond with one another. In the new film “Venom: Let There Be Carnage”; Eddie and Venom are at the end of their Honeymoon phase as Venom is lingering to be free to eat bad people and do what is natural for him. Eddie meanwhile wants a more conservative approach feeding Venom chicken and chocolate as he knows the eyes of the authorities are still upon him and he has to convince the world that Venom is dead and no longer a threat. At the same time; serial killer Cletus Kasady (Woody Harrelson) has selected Eddie to interview him in San Quentin and the two form an unusual connection as Cletus cryptically speaks to Eddie which underlines a deeper motivation. With the help of Venom; Eddie is able to decipher clues found on the walls of Cletus’s cell which leads authorities to several of his victims. This results in a rapid rise in status for Eddie and fast tracks Cletus for execution as his main means of leverage is now gone. This leads to a rift where Eddie and Venom split and each has to struggle to adjust to life without one another. At this point, the film has mainly been odd bits of whimsy between Venom and Eddie around the establishment of the plot and threat. However, things go into chaos mode when Cletus becomes infected with a Symbiote and turns into a destruction spewing death machine known as “Carnage”. Cletus and Carnage both have their own agendas and Cletus uses Carnage to exact his revenge as well as locate a figure from his past that is as big a danger as he is. As any fan of films of this genre knows; this scenario leads to a showdown between the central characters which are awash in abundant CGI, loud noises, and destruction. While this is not a bad thing and certainly one of the main reasons I enjoy films of this type; the film never seemed to fully click for me and as such was not as good as I thought it could have been. In many ways, the film reminded me of how comic-based films were done before Marvel started their own studios and their phenomenal run of hits based on their work. There have been multiple attempts to adapt comics into films over the last few decades and many of them have not lived up to expectations or failed outright. One of the biggest reasons is in my opinion is that those behind the projects were hindered by the studio, wanted to put their own spin on the material and strayed from the source; or failed to show the attributes that made the characters so appealing to fans. What we often get is action sequences and CGI galore but without stories or characters that fully draw in the audience and fail to capture the essence of the comics. Director Andy Serkis has done a great job with the visuals of the film but the tone seems off. The early part of the film is filled with comedic moments that are either hit or miss. Some of which was almost to the point where I wondered if it was supposed to be a parody. The plot is fairly linear with nothing unexpected as it is simply bad guys get loose; bad guys cause death and destruction, can the heroes stop them. The climactic scene lacks any “wow” moments for me as it was mainly CGI characters rapidly moving around causing damage to one another and their environment. There was no real tension for me and the ultimate resolution seemed a bit anti-climactic. For me the best moment of the film was a mid-credits scene that really popped as it sets up all sorts of interesting options and indicates that Venom may be about to graduate to bigger and better things. For now; the cast is solid as is the CGI; I just wish the story was more engaging as it had the potential to be so much more. 3 stars out of 5"/>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
