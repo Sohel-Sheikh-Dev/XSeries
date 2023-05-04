@@ -91,9 +91,9 @@ public class SearchActivity extends AppCompatActivity {
 
     private void init() {
         editTextSearch = findViewById(R.id.searchEditText);
-        String theQuery = MainActivity.getMainEditText();
-        editTextSearch.setText(theQuery);
-        queryText = MainActivity.getMainEditText();
+//        String theQuery = MainActivity.getMainEditText();
+//        editTextSearch.setText(theQuery);
+//        queryText = MainActivity.getMainEditText();
         noResultTV = findViewById(R.id.noResultTV);
         navigationSearch = findViewById(R.id.navigationSearch);
 
