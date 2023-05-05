@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DiscoverFragment"
-    android:background="#658">
+    tools:context=".CollectionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/buttonTab"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shows"/>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_toRightOf="@id/button4"
+            android:text="Movies"/>
+    </RelativeLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/showsMovies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Discover Fragment"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="26sp"/>
+        android:layout_below="@+id/buttonTab"/>
 
-</FrameLayout>
+</RelativeLayout>

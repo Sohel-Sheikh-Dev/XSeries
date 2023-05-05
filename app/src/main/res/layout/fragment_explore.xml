@@ -13,6 +13,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="0dp"
+            android:visibility="gone"
             android:layout_height="64dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -32,6 +33,8 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_centerHorizontal="true"
+            android:visibility="gone"
+
             android:elevation="4dp"
             android:padding="5dp"
             android:src="@drawable/xseries_icon" />
@@ -42,6 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
+            android:visibility="gone"
+
             android:layout_margin="10dp"
             android:elevation="4dp"
             android:padding="10dp"
@@ -51,6 +56,8 @@
             android:id="@+id/navigationMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
+
             android:layout_margin="10dp"
             android:elevation="4dp"
             android:padding="10dp"
@@ -84,6 +91,7 @@
 
         <Button
             android:id="@+id/search"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:layout_below="@id/WelcomeText"
@@ -106,6 +114,7 @@
             android:id="@+id/searchButtonMain"
             android:layout_width="95dp"
             android:layout_height="46dp"
+            android:visibility="gone"
             android:layout_below="@id/WelcomeText"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
@@ -120,9 +129,10 @@
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/slider"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_centerInParent="true"
+            android:layout_height="250dp"
             android:layout_below="@id/appBarLayout"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="-2dp"
             android:foreground="#C6032C4A"
             app:sliderAnimationDuration="1000"
             app:sliderAutoCycleDirection="back_and_forth"

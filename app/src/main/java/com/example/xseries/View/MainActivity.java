@@ -1,6 +1,8 @@
 package com.example.xseries.View;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -14,6 +16,7 @@ import com.example.xseries.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    static Button mainEditText;
 
     ActivityMainBinding binding;
 
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragments(new ExploreFragment());
 
+        mainEditText = findViewById(R.id.search);
 
         binding.bottomNav.setOnItemSelectedListener(item -> {
 
@@ -43,8 +47,29 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
+        search();
 
 
+    }
+    private void search() {
+        mainEditText.setOnClickListener(view -> {
+            Intent intent = new Intent(view.getContext(), SearchActivity.class);
+//            intent.putExtra("query", mainEditText.toString());
+            startActivity(intent);
+/*
+            if (TextUtils.isEmpty(mainEditText.getText().toString())) {
+                mainEditText.setError("Please enter the query");
+            }
+            else {
+                mainClickedOrDetailsClicked = true;
+                TeleVmainClickedOrDetailsClicked = true;
+                Intent intent = new Intent(view.getContext(), SearchActivity.class);
+                intent.putExtra("query", mainEditText.toString());
+                startActivity(intent);
+//                Toast.makeText(view.getContext(), "" + mainEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+*/
+        });
     }
 
     private void replaceFragments(Fragment fragment) {
