@@ -41,7 +41,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Main_Fragment extends Fragment {
+public class ExploreFragment extends Fragment {
 
 
 
@@ -75,7 +75,7 @@ public class Main_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_main_, container, false);
+        View view = inflater.inflate(R.layout.fragment_explore, container, false);
 
         moviesModelArrayListTop = new ArrayList<>();
         moviesModelArrayListPop = new ArrayList<>();

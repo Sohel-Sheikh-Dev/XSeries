@@ -7,28 +7,52 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.xseries.CollectionFragment;
+import com.example.xseries.DiscoverFragment;
 import com.example.xseries.R;
+import com.example.xseries.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    Fragment fragment;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragments(new ExploreFragment());
 
 
-        FragmentManager fm = getSupportFragmentManager();
-        fragment = fm.findFragmentByTag("myFragmentTag");
-        if (fragment == null) {
-            FragmentTransaction ft = fm.beginTransaction();
-            fragment = new Main_Fragment();
-            ft.add(android.R.id.content, fragment, "myFragmentTag");
-            ft.commit();
-        }
+        binding.bottomNav.setOnItemSelectedListener(item -> {
 
+            switch (item.getItemId()) {
+
+                case R.id.bottom_nav_explore:
+                    replaceFragments(new ExploreFragment());
+                    break;
+                case R.id.bottom_nav_discover:
+                    replaceFragments(new DiscoverFragment());
+                    break;
+                case R.id.bottom_nav_collection:
+                    replaceFragments(new CollectionFragment());
+                    break;
+            }
+
+            return true;
+        });
+
+
+
+    }
+
+    private void replaceFragments(Fragment fragment) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 
 }
