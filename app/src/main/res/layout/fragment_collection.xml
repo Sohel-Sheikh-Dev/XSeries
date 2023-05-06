@@ -9,7 +9,9 @@
 
     <RelativeLayout
         android:id="@+id/buttonTab"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,19 +19,25 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shows"
-            android:textColor="@color/selected"
-            android:background="@color/transparent"/>
+            android:text="@string/shows"
+            android:textAllCaps="false"
+            android:textColor="@color/tab_color"
+            android:background="@color/transparent"
+            android:textSize="22sp"
+            android:fontFamily="@font/inter_semibold"/>
 
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_toEndOf="@id/button4"
             android:text="Movies"
-            android:textColor="@color/selected"
-            android:background="@color/transparent"/>
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/tab_color"
+            android:background="@color/transparent"
+            android:textSize="22sp"
+            android:textAllCaps="false"
+            android:layout_marginStart="5dp"/>
     </RelativeLayout>
 
 

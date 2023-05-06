@@ -17,19 +17,25 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shows"
+            android:text="@string/shows"
+            android:textAllCaps="false"
+            android:textColor="@color/tab_color"
             android:background="@color/transparent"
-            android:textColor="@color/white"/>
+            android:textSize="22sp"
+            android:fontFamily="@font/inter_semibold"/>
 
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_toRightOf="@id/button4"
+            android:layout_toEndOf="@id/button4"
             android:text="Movies"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/tab_color"
             android:background="@color/transparent"
-            android:textColor="@color/white"/>
+            android:textSize="22sp"
+            android:textAllCaps="false"
+            android:layout_marginStart="5dp"/>
     </RelativeLayout>
 
 
