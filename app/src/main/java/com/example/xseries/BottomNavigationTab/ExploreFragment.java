@@ -1,4 +1,4 @@
-package com.example.xseries.View;
+package com.example.xseries.BottomNavigationTab;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -30,6 +30,7 @@ import com.example.xseries.Model.MoviesModel;
 import com.example.xseries.R;
 import com.example.xseries.Response.MoviesResponse;
 import com.example.xseries.Retrofit.RetrofitInstance;
+import com.example.xseries.View.SearchActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;

@@ -1,4 +1,4 @@
-package com.example.xseries.ProgressTab;
+package com.example.xseries.BottomNavigationTab.ProgressTab.MoviesTab;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.xseries.BottomNavigationTab.ProgressTab.HiddenProgress;
+import com.example.xseries.BottomNavigationTab.ProgressTab.WatchlistProgress;
 import com.example.xseries.R;
-import com.example.xseries.ShowsTab.Hidden;
-import com.example.xseries.ShowsTab.My_Shows;
-import com.example.xseries.ShowsTab.Watchlist;
-import com.example.xseries.ViewPagerAdapter;
+import com.example.xseries.Adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-public class ShowFragmentProgress extends Fragment {
+public class MovieFragmentProgress extends Fragment {
+
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -25,10 +25,12 @@ public class ShowFragmentProgress extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_show_progress, container, false);
+        View view = inflater.inflate(R.layout.fragment_movie_progress, container, false);
         addFragment(view);
+
         return view;
     }
+
 
     private void addFragment(View view) {
 
@@ -36,7 +38,7 @@ public class ShowFragmentProgress extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new My_ShowsProgress(), "Shows");
+        adapter.addFragment(new My_MoviesProgress(), "Movies");
         adapter.addFragment(new WatchlistProgress(), "Watchlist");
         adapter.addFragment(new HiddenProgress(), "Hidden");
         viewPager.setAdapter(adapter);

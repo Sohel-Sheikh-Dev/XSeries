@@ -9,4 +9,11 @@
     <color name="dark_green">#091c22</color>
     <color name="white">#FFFFFFFF</color>
     <color name="new_color">#FFAAAAAA</color>
+
+    <color name="page_background">#131313</color>
+    <color name="background_grey">#222327</color>
+    <color name="unselected">#a1a1a1</color>
+    <color name="selected">#ffffff</color>
+    <color name="red">#df4a43</color>
+    <color name="transparent">#00000000</color>
 </resources>

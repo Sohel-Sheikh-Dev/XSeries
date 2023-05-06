@@ -1,4 +1,4 @@
-package com.example.xseries.ShowsTab;
+package com.example.xseries.BottomNavigationTab.CollectionTab.MoviesTab;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,11 +8,10 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.xseries.BottomNavigationTab.CollectionTab.Hidden;
+import com.example.xseries.BottomNavigationTab.CollectionTab.Watchlist;
 import com.example.xseries.R;
-import com.example.xseries.ShowsTab.Hidden;
-import com.example.xseries.ShowsTab.My_Movies;
-import com.example.xseries.ShowsTab.Watchlist;
-import com.example.xseries.ViewPagerAdapter;
+import com.example.xseries.Adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class MovieFragment extends Fragment {

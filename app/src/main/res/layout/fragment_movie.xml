@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#665"
-    tools:context=".ShowsTab.ShowFragment">
+    tools:context=".BottomNavigationTab.CollectionTab.ShowsTab.ShowFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -33,10 +33,11 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_500"
+            android:background="@color/page_background"
             app:tabIndicatorColor="@color/white"
             app:tabIndicatorHeight="2dp"
-            app:tabMode="fixed">
+            app:tabMode="fixed"
+            app:tabTextColor="@color/selected">
 
         </com.google.android.material.tabs.TabLayout>
 

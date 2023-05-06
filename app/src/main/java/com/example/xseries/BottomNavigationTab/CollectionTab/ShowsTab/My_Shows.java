@@ -1,4 +1,4 @@
-package com.example.xseries.ShowsTab;
+package com.example.xseries.BottomNavigationTab.CollectionTab.ShowsTab;
 
 import android.os.Bundle;
 

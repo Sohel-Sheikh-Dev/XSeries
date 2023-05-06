@@ -1,4 +1,4 @@
-package com.example.xseries.ProgressTab;
+package com.example.xseries.BottomNavigationTab.CollectionTab.ShowsTab;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,15 +8,13 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.xseries.BottomNavigationTab.CollectionTab.Hidden;
+import com.example.xseries.BottomNavigationTab.CollectionTab.Watchlist;
 import com.example.xseries.R;
-import com.example.xseries.ShowsTab.Hidden;
-import com.example.xseries.ShowsTab.My_Movies;
-import com.example.xseries.ShowsTab.Watchlist;
-import com.example.xseries.ViewPagerAdapter;
+import com.example.xseries.Adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-public class MovieFragmentProgress extends Fragment {
-
+public class ShowFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -26,12 +24,10 @@ public class MovieFragmentProgress extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_movie_progress, container, false);
+        View view = inflater.inflate(R.layout.fragment_show, container, false);
         addFragment(view);
-
         return view;
     }
-
 
     private void addFragment(View view) {
 
@@ -39,9 +35,9 @@ public class MovieFragmentProgress extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new My_MoviesProgress(), "Movies");
-        adapter.addFragment(new WatchlistProgress(), "Watchlist");
-        adapter.addFragment(new HiddenProgress(), "Hidden");
+        adapter.addFragment(new My_Shows(), "Shows");
+        adapter.addFragment(new Watchlist(), "Watchlist");
+        adapter.addFragment(new Hidden(), "Hidden");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

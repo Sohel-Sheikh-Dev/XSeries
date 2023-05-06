@@ -1,22 +1,20 @@
-package com.example.xseries.ShowsTab;
+package com.example.xseries.BottomNavigationTab.ProgressTab.ShowsTab;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.xseries.BottomNavigationTab.ProgressTab.HiddenProgress;
+import com.example.xseries.BottomNavigationTab.ProgressTab.WatchlistProgress;
 import com.example.xseries.R;
-import com.example.xseries.ShowsTab.Hidden;
-import com.example.xseries.ShowsTab.My_Shows;
-import com.example.xseries.ShowsTab.Watchlist;
-import com.example.xseries.ViewPagerAdapter;
+import com.example.xseries.Adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-public class ShowFragment extends Fragment {
+public class ShowFragmentProgress extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -26,7 +24,7 @@ public class ShowFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_show, container, false);
+        View view = inflater.inflate(R.layout.fragment_show_progress, container, false);
         addFragment(view);
         return view;
     }
@@ -37,9 +35,9 @@ public class ShowFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new My_Shows(), "Shows");
-        adapter.addFragment(new Watchlist(), "Watchlist");
-        adapter.addFragment(new Hidden(), "Hidden");
+        adapter.addFragment(new My_ShowsProgress(), "Shows");
+        adapter.addFragment(new WatchlistProgress(), "Watchlist");
+        adapter.addFragment(new HiddenProgress(), "Hidden");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

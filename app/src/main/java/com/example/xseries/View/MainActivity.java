@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.xseries.CollectionFragment;
-import com.example.xseries.DiscoverFragment;
+import com.example.xseries.BottomNavigationTab.CollectionFragment;
+import com.example.xseries.BottomNavigationTab.DiscoverFragment;
+import com.example.xseries.BottomNavigationTab.ExploreFragment;
 import com.example.xseries.R;
 import com.example.xseries.databinding.ActivityMainBinding;
 

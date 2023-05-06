@@ -1,4 +1,4 @@
-package com.example.xseries;
+package com.example.xseries.BottomNavigationTab;
 
 import android.os.Bundle;
 
@@ -10,11 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.xseries.ShowsTab.MovieFragment;
-import com.example.xseries.ShowsTab.ShowFragment;
+import com.example.xseries.BottomNavigationTab.ProgressTab.MoviesTab.MovieFragmentProgress;
+import com.example.xseries.BottomNavigationTab.ProgressTab.ShowsTab.ShowFragmentProgress;
+import com.example.xseries.R;
 import com.google.android.material.tabs.TabLayout;
-public class CollectionFragment extends Fragment {
 
+public class DiscoverFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -23,13 +24,13 @@ public class CollectionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_collection, container, false);
+
+        View view =  inflater.inflate(R.layout.fragment_discover, container, false);
 
         shows = view.findViewById(R.id.button4);
         movies = view.findViewById(R.id.button5);
 
-        ShowFragment nextFrag= new ShowFragment();
+        ShowFragmentProgress nextFrag= new ShowFragmentProgress();
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.showsMovies, nextFrag, "findThisFragment")
                 .addToBackStack(null)
@@ -38,7 +39,7 @@ public class CollectionFragment extends Fragment {
         shows.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShowFragment nextFrag= new ShowFragment();
+                ShowFragmentProgress nextFrag= new ShowFragmentProgress();
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.showsMovies, nextFrag, "findThisFragment")
                         .addToBackStack(null)
@@ -49,7 +50,7 @@ public class CollectionFragment extends Fragment {
         movies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MovieFragment nextFrag= new MovieFragment();
+                MovieFragmentProgress nextFrag= new MovieFragmentProgress();
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.showsMovies, nextFrag, "findThisFragment")
                         .addToBackStack(null)
@@ -57,18 +58,7 @@ public class CollectionFragment extends Fragment {
             }
         });
 
+        // Inflate the layout for this fragment
         return view;
-    }
-
-    private void addFragment(View view) {
-
-        tabLayout = view.findViewById(R.id.tabLayout);
-        viewPager = view.findViewById(R.id.viewPager);
-
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new ShowFragment(), "Shows");
-        adapter.addFragment(new MovieFragment(), "Movies");
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
     }
 }

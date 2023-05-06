@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CollectionFragment">
+    tools:context=".BottomNavigationTab.CollectionFragment"
+    android:background="@color/page_background">
 
     <RelativeLayout
         android:id="@+id/buttonTab"
@@ -16,7 +17,9 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shows"/>
+            android:text="Shows"
+            android:background="@color/transparent"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/button5"
@@ -24,7 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_toRightOf="@id/button4"
-            android:text="Movies"/>
+            android:text="Movies"
+            android:background="@color/transparent"
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
 

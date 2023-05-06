@@ -19,4 +19,11 @@
         <item name="android:progressDrawable">@drawable/circle_green</item>
     </style>
 
+    <style name="BodyText" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="BodyText.NavigationBar" parent="@style/BodyText">
+    </style>
 </resources>

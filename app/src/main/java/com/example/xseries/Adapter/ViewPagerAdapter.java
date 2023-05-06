@@ -1,4 +1,4 @@
-package com.example.xseries;
+package com.example.xseries.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
