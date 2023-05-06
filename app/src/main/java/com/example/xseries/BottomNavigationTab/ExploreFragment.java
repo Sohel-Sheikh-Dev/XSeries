@@ -3,13 +3,6 @@ package com.example.xseries.BottomNavigationTab;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -21,6 +14,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.xseries.Adapter.LatestTrailerAdapter;
 import com.example.xseries.Adapter.ParentItemAdapter;
@@ -45,7 +44,6 @@ import retrofit2.Response;
 public class ExploreFragment extends Fragment {
 
 
-
     List<MoviesModel> moviesModelArrayListTop, moviesModelArrayListPop, moviesModelArrayListTrendM, moviesModelArrayListTrendTV, moviesModelArrayListUpcoming, moviesModelArrayListPosters;
     private ParentItemAdapter adapter;
     RecyclerView recyclerView;
@@ -65,7 +63,7 @@ public class ExploreFragment extends Fragment {
     private SliderAdapter sliderAdapter;
     private SliderView sliderView;
     Toolbar toolbar;
-    ImageView mainAccount,navigationMain;
+    ImageView mainAccount, navigationMain;
 
     public static boolean mainClickedOrDetailsClicked;
     public static boolean TeleVmainClickedOrDetailsClicked;
@@ -95,6 +93,9 @@ public class ExploreFragment extends Fragment {
         navigationMain = view.findViewById(R.id.navigationMain);
 
         recyclerView = view.findViewById(R.id.recyclerView);
+
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.suppressLayout(true);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -230,7 +231,6 @@ public class ExploreFragment extends Fragment {
         adapter = new ParentItemAdapter(getActivity(), itemList);
         recyclerView.setAdapter(adapter);
     }
-
 
 
     private void getTopRatedMovies() {

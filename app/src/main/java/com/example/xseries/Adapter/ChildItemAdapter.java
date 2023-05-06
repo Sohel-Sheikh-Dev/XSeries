@@ -56,9 +56,9 @@ public class ChildItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         if (viewType == VIEW_TYPE_ONE) {
-            return new ViewHolder1(LayoutInflater.from(context).inflate(R.layout.child_item, parent, false));
+            return new ViewHolder1(LayoutInflater.from(context).inflate(R.layout.new_item, parent, false));
         }
-        return new ViewHolder2(LayoutInflater.from(context).inflate(R.layout.childtv_item, parent, false));
+        return new ViewHolder2(LayoutInflater.from(context).inflate(R.layout.new_tv_item, parent, false));
 
     }
 
@@ -83,7 +83,7 @@ public class ChildItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             float vote = moviesModelArrayList.get(position).getVote_average() * 10;
             int vote_final = Math.round(vote);
 
-            Log.d("togg", "onResponse: "+position);
+            Log.d("togg", "onResponse: " + position);
 
 
             String votePercentage = String.valueOf(vote_final);
@@ -146,7 +146,7 @@ public class ChildItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     new SimpleDateFormat("MMM dd, yyyy"));
             ((ViewHolder2) holder).TVtvDate.setText(date_format);
 
-
+/*
             float vote = moviesModelArrayList.get(position).getVote_average() * 10;
             int vote_final = Math.round(vote);
 
@@ -197,7 +197,7 @@ public class ChildItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 which_tv_item = true;
                 context.startActivity(intent);
             });
-
+*/
         }
 
 

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
 
     <RelativeLayout
         android:id="@+id/welcomeView"
@@ -68,25 +74,105 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/appBarLayout"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:padding="15dp"
             android:elevation="1dp"
             android:fontFamily="sans-serif-black"
-            android:text="Welcome."
+            android:text="X Series"
             android:textColor="@color/white"
             android:textSize="45sp" />
 
-        <TextView
-            android:id="@+id/WelcomeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:id="@+id/filter"
             android:layout_below="@+id/welcome"
-            android:layout_marginStart="20dp"
-            android:elevation="1dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Millions of Movies, Tv \nshows and people to \ndiscover. Explore now."
-            android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/filter" />
+
+            <TextView
+                android:id="@+id/nofilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:background="@drawable/filter_ui_shape_selected"
+                android:paddingLeft="10dp"
+                android:paddingTop="7dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="7dp"
+                android:textColor="@color/red"
+                android:text="Hot" />
+
+            <TextView
+                android:id="@+id/highToLow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/filter_ui_shape_selected"
+                android:paddingLeft="10dp"
+                android:paddingTop="7dp"
+                android:textColor="@color/red"
+
+                android:paddingRight="10dp"
+                android:paddingBottom="7dp"
+                android:text="Milf" />
+
+            <TextView
+                android:id="@+id/lowToHigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/filter_ui_shape"
+                android:paddingLeft="10dp"
+                android:paddingTop="7dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/white"
+                android:paddingBottom="7dp"
+                android:text="Blonde" />
+
+            <TextView
+                android:id="@+id/lowToHigh1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/filter_ui_shape_selected"
+                android:textColor="@color/red"
+
+                android:paddingLeft="10dp"
+                android:paddingTop="7dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="7dp"
+                android:text="Threesome" />
+
+            <TextView
+                android:id="@+id/lowToHigh2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/filter_ui_shape"
+                android:paddingLeft="5dp"
+                android:textColor="@color/white"
+
+                android:paddingTop="7dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="7dp"
+                android:text="Blowjob" />
+
+
+        </LinearLayout>
 
 
         <Button
@@ -94,7 +180,6 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:layout_below="@id/WelcomeText"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
@@ -115,7 +200,6 @@
             android:layout_width="95dp"
             android:layout_height="46dp"
             android:visibility="gone"
-            android:layout_below="@id/WelcomeText"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
@@ -129,6 +213,7 @@
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/slider"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="250dp"
             android:layout_below="@id/appBarLayout"
             android:layout_centerVertical="true"
@@ -154,6 +239,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
+        android:nestedScrollingEnabled="false"
         android:layout_height="match_parent"
         android:layout_below="@+id/welcomeView" />
 
@@ -163,8 +249,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/welcomeView"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:layout_centerVertical="true"
-        android:layout_margin="50dp" />
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>

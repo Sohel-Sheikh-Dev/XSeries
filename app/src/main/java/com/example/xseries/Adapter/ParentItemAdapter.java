@@ -40,7 +40,7 @@ public class ParentItemAdapter extends RecyclerView.Adapter<ParentItemAdapter.Pa
         ParentItem parentItem = itemList.get(position);
 
         holder.parentTV.setText(parentItem.getParentItemTextView());
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(holder.childRecyclerView.getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(holder.childRecyclerView.getContext(), LinearLayoutManager.VERTICAL, false);
         linearLayoutManager.setInitialPrefetchItemCount(parentItem.getMoviesModelArrayList().size());
 
         ChildItemAdapter childItemAdapter = new ChildItemAdapter(context.getApplicationContext(), parentItem.getMoviesModelArrayList());
