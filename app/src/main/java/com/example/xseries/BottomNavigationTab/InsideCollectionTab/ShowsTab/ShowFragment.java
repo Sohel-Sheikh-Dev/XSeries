@@ -1,4 +1,4 @@
-package com.example.xseries.BottomNavigationTab.CollectionTab.ShowsTab;
+package com.example.xseries.BottomNavigationTab.InsideCollectionTab.ShowsTab;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.xseries.BottomNavigationTab.CollectionTab.Hidden;
-import com.example.xseries.BottomNavigationTab.CollectionTab.Watchlist;
+import com.example.xseries.BottomNavigationTab.InsideCollectionTab.Hidden;
+import com.example.xseries.BottomNavigationTab.InsideCollectionTab.Watchlist;
 import com.example.xseries.R;
 import com.example.xseries.Adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;

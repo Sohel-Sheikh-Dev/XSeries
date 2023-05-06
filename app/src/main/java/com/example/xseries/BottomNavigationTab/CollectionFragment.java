@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.xseries.R;
-import com.example.xseries.BottomNavigationTab.CollectionTab.MoviesTab.MovieFragment;
-import com.example.xseries.BottomNavigationTab.CollectionTab.ShowsTab.ShowFragment;
+import com.example.xseries.BottomNavigationTab.InsideCollectionTab.MoviesTab.MovieFragment;
+import com.example.xseries.BottomNavigationTab.InsideCollectionTab.ShowsTab.ShowFragment;
 import com.example.xseries.Adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 public class CollectionFragment extends Fragment {

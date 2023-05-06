@@ -1,4 +1,4 @@
-package com.example.xseries.BottomNavigationTab.CollectionTab;
+package com.example.xseries.BottomNavigationTab.InsideCollectionTab.ShowsTab;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.xseries.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Watchlist#newInstance} factory method to
+ * Use the {@link My_Shows#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Watchlist extends Fragment {
+public class My_Shows extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class Watchlist extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Watchlist() {
+    public My_Shows() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class Watchlist extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Watchlist.
+     * @return A new instance of fragment My_Shows.
      */
     // TODO: Rename and change types and number of parameters
-    public static Watchlist newInstance(String param1, String param2) {
-        Watchlist fragment = new Watchlist();
+    public static My_Shows newInstance(String param1, String param2) {
+        My_Shows fragment = new My_Shows();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class Watchlist extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_watchlist, container, false);
+        return inflater.inflate(R.layout.fragment_my__shows, container, false);
     }
 }

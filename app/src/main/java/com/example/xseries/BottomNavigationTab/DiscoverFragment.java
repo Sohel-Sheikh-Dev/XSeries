@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.xseries.BottomNavigationTab.ProgressTab.MoviesTab.MovieFragmentProgress;
-import com.example.xseries.BottomNavigationTab.ProgressTab.ShowsTab.ShowFragmentProgress;
+import com.example.xseries.BottomNavigationTab.InsideProgressTab.MoviesTab.MovieFragmentProgress;
+import com.example.xseries.BottomNavigationTab.InsideProgressTab.ShowsTab.ShowFragmentProgress;
 import com.example.xseries.R;
 import com.google.android.material.tabs.TabLayout;
 
