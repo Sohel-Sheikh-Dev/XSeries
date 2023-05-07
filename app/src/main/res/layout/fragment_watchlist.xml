@@ -7,16 +7,42 @@
     android:background="@color/page_background">
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Collection Watchlist"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ll_layout"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Watchlist"
+            android:textColor="@color/selected"
+            android:textSize="20sp"
+            android:fontFamily="@font/inter_semibold"
+            android:layout_marginTop="200dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Watchlist in currently empty"
+            android:textColor="@color/unselected"
+            android:textSize="14sp"
+            android:fontFamily="@font/inter_medium"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Visit Explore tab to add movies that you want to watch in the future."
+            android:textColor="@color/unselected"
+            android:textSize="14sp"
+            android:fontFamily="@font/inter_regular"
+            android:layout_marginTop="10dp"/>
+
+
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
