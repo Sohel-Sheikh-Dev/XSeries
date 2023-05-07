@@ -1,4 +1,4 @@
-package com.example.xseries.BottomNavigationTab.InsideCollectionTab.ShowsTab;
+package com.example.xseries.BottomNavigationTab.InsideCollectionTab;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.xseries.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link My_Shows#newInstance} factory method to
+ * Use the {@link Playlist#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class My_Shows extends Fragment {
+public class Playlist extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class My_Shows extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public My_Shows() {
+    public Playlist() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class My_Shows extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment My_Shows.
+     * @return A new instance of fragment Hidden.
      */
     // TODO: Rename and change types and number of parameters
-    public static My_Shows newInstance(String param1, String param2) {
-        My_Shows fragment = new My_Shows();
+    public static Playlist newInstance(String param1, String param2) {
+        Playlist fragment = new Playlist();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class My_Shows extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my__shows, container, false);
+        return inflater.inflate(R.layout.fragment_hidden, container, false);
     }
 }

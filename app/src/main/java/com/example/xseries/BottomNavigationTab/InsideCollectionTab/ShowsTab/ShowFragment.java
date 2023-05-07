@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.xseries.BottomNavigationTab.InsideCollectionTab.Hidden;
+import com.example.xseries.BottomNavigationTab.InsideCollectionTab.Playlist;
 import com.example.xseries.BottomNavigationTab.InsideCollectionTab.Watchlist;
 import com.example.xseries.R;
 import com.example.xseries.Adapter.ViewPagerAdapter;
@@ -35,9 +35,9 @@ public class ShowFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new My_Shows(), "Shows");
+        adapter.addFragment(new ShowDownloads(), "Downloads");
         adapter.addFragment(new Watchlist(), "Watchlist");
-        adapter.addFragment(new Hidden(), "Hidden");
+        adapter.addFragment(new Playlist(), "Playlist");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

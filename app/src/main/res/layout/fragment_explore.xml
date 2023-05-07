@@ -40,7 +40,6 @@
             android:layout_height="65dp"
             android:layout_centerHorizontal="true"
             android:visibility="gone"
-
             android:elevation="4dp"
             android:padding="5dp"
             android:src="@drawable/xseries_icon" />
@@ -52,7 +51,6 @@
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
             android:visibility="gone"
-
             android:layout_margin="10dp"
             android:elevation="4dp"
             android:padding="10dp"
@@ -69,110 +67,233 @@
             android:padding="10dp"
             android:src="@drawable/ic_round_view_headline_24" />
 
-        <TextView
-            android:id="@+id/welcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/appBarLayout"
-            android:padding="15dp"
-            android:elevation="1dp"
-            android:fontFamily="sans-serif-black"
-            android:text="X Series"
-            android:textColor="@color/white"
-            android:textSize="45sp" />
-
         <LinearLayout
-            android:id="@+id/filter"
-            android:layout_below="@+id/welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/welcome">
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/filter" />
 
             <TextView
-                android:id="@+id/nofilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="5dp"
-                android:background="@drawable/filter_ui_shape_selected"
-                android:paddingLeft="10dp"
-                android:paddingTop="7dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="7dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:elevation="1dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="X"
                 android:textColor="@color/red"
-                android:text="Hot" />
+                android:textSize="36sp" />
 
             <TextView
-                android:id="@+id/highToLow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="5dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/filter_ui_shape_selected"
-                android:paddingLeft="10dp"
-                android:paddingTop="7dp"
-                android:textColor="@color/red"
-
-                android:paddingRight="10dp"
-                android:paddingBottom="7dp"
-                android:text="Milf" />
-
-            <TextView
-                android:id="@+id/lowToHigh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="5dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/filter_ui_shape"
-                android:paddingLeft="10dp"
-                android:paddingTop="7dp"
-                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:elevation="1dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Series"
                 android:textColor="@color/white"
-                android:paddingBottom="7dp"
-                android:text="Blonde" />
-
-            <TextView
-                android:id="@+id/lowToHigh1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="5dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/filter_ui_shape_selected"
-                android:textColor="@color/red"
-
-                android:paddingLeft="10dp"
-                android:paddingTop="7dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="7dp"
-                android:text="Threesome" />
-
-            <TextView
-                android:id="@+id/lowToHigh2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="5dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/filter_ui_shape"
-                android:paddingLeft="5dp"
-                android:textColor="@color/white"
-
-                android:paddingTop="7dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="7dp"
-                android:text="Blowjob" />
+                android:textSize="36sp" />
 
 
         </LinearLayout>
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_below="@+id/welcome"
+            android:layout_marginStart="10dp">
+
+            <LinearLayout
+                android:id="@+id/filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/filter" />
+
+                <TextView
+                    android:id="@+id/nofilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/filter_ui_shape_selected"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:textColor="@color/red"
+                    android:text="Hot" />
+
+                <TextView
+                    android:id="@+id/highToLow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape_selected"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:textColor="@color/red"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Rain Basera" />
+
+                <TextView
+                    android:id="@+id/lowToHigh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:paddingBottom="7dp"
+                    android:text="Rikshawala" />
+
+                <TextView
+                    android:id="@+id/lowToHigh2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape_selected"
+                    android:textColor="@color/red"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Secretary" />
+
+                <TextView
+                    android:id="@+id/lowToHigh3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/white"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Khidki" />
+
+
+                <TextView
+                    android:id="@+id/lowToHigh4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape_selected"
+                    android:textColor="@color/red"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Walkman" />
+
+
+                <TextView
+                    android:id="@+id/lowToHigh10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape_selected"
+                    android:textColor="@color/red"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Watchman" />
+
+
+                <TextView
+                    android:id="@+id/lowToHigh11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/white"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Choodiwala" />
+
+
+                <TextView
+                    android:id="@+id/lowToHigh9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/white"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Palang Tod" />
+
+                <TextView
+                    android:id="@+id/lowToHigh13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape_selected"
+                    android:textColor="@color/red"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Chawl House 2" />
+
+                <TextView
+                    android:id="@+id/lowToHigh14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/filter_ui_shape"
+                    android:textColor="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="7dp"
+                    android:text="Charmsukh" />
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
 
 
         <Button
@@ -244,17 +365,17 @@
         android:layout_below="@+id/welcomeView" />
 
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/welcomeView"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp" />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/welcomeView"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            style="@style/CircularDeterminateProgressBar"/>
 
     </RelativeLayout>
 

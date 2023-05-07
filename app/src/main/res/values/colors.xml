@@ -14,6 +14,6 @@
     <color name="background_grey">#222327</color>
     <color name="unselected">#a1a1a1</color>
     <color name="selected">#ffffff</color>
-    <color name="red">#df4a43</color>
+    <color name="red">#FF0B00</color>
     <color name="transparent">#00000000</color>
 </resources>

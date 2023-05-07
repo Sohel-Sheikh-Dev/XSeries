@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.xseries.BottomNavigationTab.InsideProgressTab.HiddenProgress;
-import com.example.xseries.BottomNavigationTab.InsideProgressTab.WatchlistProgress;
+import com.example.xseries.BottomNavigationTab.InsideProgressTab.Progress;
+import com.example.xseries.BottomNavigationTab.InsideProgressTab.Calendar;
 import com.example.xseries.R;
 import com.example.xseries.Adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
@@ -38,9 +38,8 @@ public class MovieFragmentProgress extends Fragment {
         viewPager = view.findViewById(R.id.viewPager);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new My_MoviesProgress(), "Movies");
-        adapter.addFragment(new WatchlistProgress(), "Watchlist");
-        adapter.addFragment(new HiddenProgress(), "Hidden");
+        adapter.addFragment(new Progress(), "Progress");
+        adapter.addFragment(new Calendar(), "Calendar");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }
