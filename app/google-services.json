@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "819494937296",
+    "firebase_url": "https://xseries-45885-default-rtdb.firebaseio.com",
+    "project_id": "xseries-45885",
+    "storage_bucket": "xseries-45885.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819494937296:android:f305326e25c0a3035f74d5",
+        "android_client_info": {
+          "package_name": "com.example.xseries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819494937296-0rm1bbcmukv3bkccfrngnl4dnn5c19nf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.xseries",
+            "certificate_hash": "b433d2652e76cc8300a81fdcbeba542ddd3b1c04"
+          }
+        },
+        {
+          "client_id": "819494937296-0tvlraorbd4l2m1bs98eam519g09unii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeWCYHPb2Xay-VXJPJ5VYw4oqje1pLQ7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819494937296-0tvlraorbd4l2m1bs98eam519g09unii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

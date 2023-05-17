@@ -2,8 +2,11 @@ package com.example.xseries.View;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,10 +17,16 @@ import com.example.xseries.BottomNavigationTab.DiscoverFragment;
 import com.example.xseries.BottomNavigationTab.ExploreFragment;
 import com.example.xseries.R;
 import com.example.xseries.databinding.ActivityMainBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    static Button mainEditText;
+    Button mainEditText, settings;
+
 
     ActivityMainBinding binding;
 
@@ -29,6 +38,32 @@ public class MainActivity extends AppCompatActivity {
         replaceFragments(new ExploreFragment());
 
         mainEditText = findViewById(R.id.search);
+        settings = findViewById(R.id.settings);
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatabaseReference fetchLogin = FirebaseDatabase.getInstance().getReference().child("Users").child("Admin");
+                fetchLogin.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Intent intent = new Intent(getApplicationContext(),Settings_Activity.class);
+                        startActivity(intent);
+
+                        Toast.makeText(MainActivity.this, "" + snapshot.child("gmail").getValue(), Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
 
         binding.bottomNav.setOnItemSelectedListener(item -> {
 
@@ -52,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     private void search() {
         mainEditText.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), SearchActivity.class);
