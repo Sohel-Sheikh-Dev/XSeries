@@ -44,23 +44,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DatabaseReference fetchLogin = FirebaseDatabase.getInstance().getReference().child("Users").child("Admin");
-                fetchLogin.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                        Intent intent = new Intent(getApplicationContext(),Settings_Activity.class);
-                        startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(),Settings_Activity.class);
+                startActivity(intent);
 
-                        Toast.makeText(MainActivity.this, "" + snapshot.child("gmail").getValue(), Toast.LENGTH_SHORT).show();
 
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
 
             }
         });

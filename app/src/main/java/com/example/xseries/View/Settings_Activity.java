@@ -1,11 +1,11 @@
 package com.example.xseries.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.xseries.R;
 
@@ -23,7 +23,7 @@ public class Settings_Activity extends AppCompatActivity {
         adminBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Admin_Panel.class);
+                Intent intent = new Intent(getApplicationContext(), Admin_Panel.class);
                 startActivity(intent);
             }
         });

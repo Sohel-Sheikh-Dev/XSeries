@@ -1,48 +1,32 @@
 package com.example.xseries.BottomNavigationTab;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.xseries.Adapter.LatestTrailerAdapter;
-import com.example.xseries.Adapter.ParentItemAdapter;
-import com.example.xseries.Adapter.SliderAdapter;
-import com.example.xseries.Items.ParentItem;
-import com.example.xseries.Model.MoviesModel;
+import com.example.xseries.Adapter.SeriesAdapter;
+import com.example.xseries.Model.Series_Model;
 import com.example.xseries.R;
-import com.example.xseries.Response.MoviesResponse;
-import com.example.xseries.Retrofit.RetrofitInstance;
-import com.example.xseries.View.SearchActivity;
-import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
-import com.smarteist.autoimageslider.SliderAnimations;
-import com.smarteist.autoimageslider.SliderView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class ExploreFragment extends Fragment {
-
+/*
 
     List<MoviesModel> moviesModelArrayListTop, moviesModelArrayListPop, moviesModelArrayListTrendM, moviesModelArrayListTrendTV, moviesModelArrayListUpcoming, moviesModelArrayListPosters;
     private ParentItemAdapter adapter;
@@ -67,14 +51,20 @@ public class ExploreFragment extends Fragment {
 
     public static boolean mainClickedOrDetailsClicked;
     public static boolean TeleVmainClickedOrDetailsClicked;
+*/
 
+    List<Series_Model> seriesList;
+    RecyclerView recyclerView;
+    ProgressBar progressBar;
+    LinearLayoutManager linearLayoutManager;
+    SeriesAdapter seriesAdapter;
 
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_explore, container, false);
+/*
 
         moviesModelArrayListTop = new ArrayList<>();
         moviesModelArrayListPop = new ArrayList<>();
@@ -106,11 +96,50 @@ public class ExploreFragment extends Fragment {
         search();
         accountInfo();
         navigationInfo();
+*/
+
+        View view = inflater.inflate(R.layout.fragment_explore, container, false);
+
+        seriesList = new ArrayList<>();
+        recyclerView = view.findViewById(R.id.recyclerView);
+        progressBar = view.findViewById(R.id.progressBar);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.suppressLayout(true);
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        seriesAdapter = new SeriesAdapter(getActivity(), seriesList);
+
+
+        DatabaseReference fetchLogin = FirebaseDatabase.getInstance().getReference().child("Videos");
+        seriesList.clear();
+        fetchLogin.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    progressBar.setVisibility(View.GONE);
+                    Series_Model series_model = dataSnapshot.getValue(Series_Model.class);
+                    Log.d("SERIES", "onDataChange: " + series_model.getId());
+                    seriesList.add(series_model);
+                }
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         return view;
     }
 
-
+/*
     private void navigationInfo() {
         navigationMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +163,7 @@ public class ExploreFragment extends Fragment {
             Intent intent = new Intent(view.getContext(), SearchActivity.class);
 //            intent.putExtra("query", mainEditText.toString());
             startActivity(intent);
-/*
+
             if (TextUtils.isEmpty(mainEditText.getText().toString())) {
                 mainEditText.setError("Please enter the query");
             }
@@ -146,8 +175,7 @@ public class ExploreFragment extends Fragment {
                 startActivity(intent);
 //                Toast.makeText(view.getContext(), "" + mainEditText.getText().toString(), Toast.LENGTH_SHORT).show();
             }
-*/
-        });
+});
     }
 
     public void searchMainText() {
@@ -170,6 +198,7 @@ public class ExploreFragment extends Fragment {
     public static String getMainEditText() {
         return mainEditText.getText().toString();
     }
+
 
     private void getUpcomingMovies() {
 
@@ -316,6 +345,6 @@ public class ExploreFragment extends Fragment {
             }
         });
     }
-
+*/
 
 }

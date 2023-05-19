@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.xseries">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -12,6 +17,14 @@
         android:roundIcon="@drawable/xseries_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheMovieDBApp">
+        <activity
+            android:name=".View.Video_Player"
+            android:requestLegacyExternalStorage="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name=".View.Video_Input"
+            android:exported="false" />
         <activity
             android:name=".View.Admin_Panel"
             android:exported="false" />

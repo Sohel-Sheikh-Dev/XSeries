@@ -40,6 +40,7 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-database:20.0.4'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.6.0'
     def lifecycle_version = "2.3.1"
     def retrofit_version = "2.9.0"
 
@@ -70,6 +71,31 @@ dependencies {
 
     //Realtime Database
     implementation 'com.google.firebase:firebase-database:20.2.1'
+
+    // dependency for exoplayer
+
+    implementation "com.google.android.exoplayer:exoplayer:2.18.7"
+
+// for core support in exoplayer.
+
+    implementation "com.google.android.exoplayer:exoplayer-core:2.18.7"
+
+// for adding dash support in our exoplayer.
+
+
+    implementation "com.google.android.exoplayer:exoplayer-dash:2.18.7"
+
+// for adding hls support in exoplayer.
+
+    implementation "com.google.android.exoplayer:exoplayer-hls:2.18.7"
+
+// for smooth streaming of video in our exoplayer.
+
+    implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7"
+
+// for generating default ui of exoplayer
+
+    implementation "com.google.android.exoplayer:exoplayer-ui:2.18.7"
 
 
 }
