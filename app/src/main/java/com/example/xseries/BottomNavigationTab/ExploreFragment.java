@@ -1,7 +1,15 @@
 package com.example.xseries.BottomNavigationTab;
 
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +17,13 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.xseries.Adapter.SeriesAdapter;
+import com.example.xseries.BuildConfig;
 import com.example.xseries.Model.Series_Model;
 import com.example.xseries.R;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExploreFragment extends Fragment {
+    private static final int PERMISSION_REQUEST_CODE = 1;
 /*
 
     List<MoviesModel> moviesModelArrayListTop, moviesModelArrayListPop, moviesModelArrayListTrendM, moviesModelArrayListTrendTV, moviesModelArrayListUpcoming, moviesModelArrayListPosters;
@@ -97,6 +108,16 @@ public class ExploreFragment extends Fragment {
         accountInfo();
         navigationInfo();
 */
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
+            Uri uri = Uri.parse("package:" + BuildConfig.APPLICATION_ID);
+            Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, uri);
+            startActivity(intent);
+
+        } else {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+        }
 
         View view = inflater.inflate(R.layout.fragment_explore, container, false);
 

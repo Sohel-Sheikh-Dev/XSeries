@@ -1,5 +1,6 @@
 package com.example.xseries.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -71,6 +72,8 @@ public class Admin_Panel extends AppCompatActivity {
 
                             if (emailAddress.equals(gmail) && password.equals(pass)) {
                                 Toast.makeText(Admin_Panel.this, "admin", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Admin_Panel.this, Video_Input.class);
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(Admin_Panel.this, "not admin", Toast.LENGTH_SHORT).show();
 
