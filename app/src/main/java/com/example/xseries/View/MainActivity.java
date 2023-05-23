@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -16,12 +14,8 @@ import com.example.xseries.BottomNavigationTab.CollectionFragment;
 import com.example.xseries.BottomNavigationTab.DiscoverFragment;
 import com.example.xseries.BottomNavigationTab.ExploreFragment;
 import com.example.xseries.R;
+import com.example.xseries.Search_Activity;
 import com.example.xseries.databinding.ActivityMainBinding;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,9 +39,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(getApplicationContext(),Settings_Activity.class);
+                Intent intent = new Intent(getApplicationContext(), Settings_Activity.class);
                 startActivity(intent);
-
 
 
             }
@@ -78,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void search() {
         mainEditText.setOnClickListener(view -> {
-            Intent intent = new Intent(view.getContext(), SearchActivity.class);
+            Intent intent = new Intent(view.getContext(), Search_Activity.class);
 //            intent.putExtra("query", mainEditText.toString());
             startActivity(intent);
 /*

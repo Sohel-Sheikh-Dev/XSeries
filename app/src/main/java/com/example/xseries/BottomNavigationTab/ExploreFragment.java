@@ -2,25 +2,27 @@ package com.example.xseries.BottomNavigationTab;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.xseries.Adapter.SeriesAdapter;
 import com.example.xseries.BuildConfig;
@@ -33,6 +35,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ExploreFragment extends Fragment {
@@ -69,6 +72,9 @@ public class ExploreFragment extends Fragment {
     ProgressBar progressBar;
     LinearLayoutManager linearLayoutManager;
     SeriesAdapter seriesAdapter;
+
+    TextView hot;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -130,7 +136,24 @@ public class ExploreFragment extends Fragment {
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         seriesAdapter = new SeriesAdapter(getActivity(), seriesList);
+        hot = view.findViewById(R.id.nofilter);
 
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
+
+        // Refresh  the layout
+        swipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+
+                        Collections.shuffle(seriesList);
+                        recyclerView.setAdapter(seriesAdapter);
+                        seriesAdapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setRefreshing(false);
+
+                    }
+                }
+        );
 
         DatabaseReference fetchLogin = FirebaseDatabase.getInstance().getReference().child("Videos");
         seriesList.clear();
@@ -144,6 +167,7 @@ public class ExploreFragment extends Fragment {
                     Log.d("SERIES", "onDataChange: " + series_model.getId());
                     seriesList.add(series_model);
                 }
+//                Collections.shuffle(seriesList);
                 recyclerView.setAdapter(seriesAdapter);
                 seriesAdapter.notifyDataSetChanged();
 
@@ -157,8 +181,34 @@ public class ExploreFragment extends Fragment {
         });
 
 
+        hot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+
+
         return view;
     }
+
+
+
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        }, 1000);
+    }
+
 
 /*
     private void navigationInfo() {

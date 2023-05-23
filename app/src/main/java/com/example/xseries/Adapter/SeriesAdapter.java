@@ -1,5 +1,7 @@
 package com.example.xseries.Adapter;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -31,6 +33,11 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ParentView
     private final RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private static List<Series_Model> itemList = new ArrayList<>();
     static Context context;
+
+    public void filtterList(List<Series_Model> filterList) {
+        itemList = filterList;
+        notifyDataSetChanged();
+    }
 
     public SeriesAdapter(Context context, List<Series_Model> itemList) {
         SeriesAdapter.context = context;
@@ -95,6 +102,7 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ParentView
                     Toast.makeText(context, "" + itemList.get(getBindingAdapterPosition()).getUrl(), Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(context, Video_Player.class);
+                    intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("url", itemList.get(getBindingAdapterPosition()).getUrl());
                     intent.putExtra("title", itemList.get(getBindingAdapterPosition()).getTitle());
                     context.startActivity(intent);
