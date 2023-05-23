@@ -69,11 +69,10 @@ public class ExploreFragment extends Fragment {
 
     List<Series_Model> seriesList;
     RecyclerView recyclerView;
-    ProgressBar progressBar;
     LinearLayoutManager linearLayoutManager;
     SeriesAdapter seriesAdapter;
 
-    TextView hot;
+    TextView hot,highToLow,lowToHigh,lowToHigh2,lowToHigh3,lowToHigh4,lowToHigh10,lowToHigh11,lowToHigh9,lowToHigh13,lowToHigh14;
     SwipeRefreshLayout swipeRefreshLayout;
 
     @SuppressLint("MissingInflatedId")
@@ -115,7 +114,6 @@ public class ExploreFragment extends Fragment {
         navigationInfo();
 */
 
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
             Uri uri = Uri.parse("package:" + BuildConfig.APPLICATION_ID);
             Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, uri);
@@ -129,16 +127,18 @@ public class ExploreFragment extends Fragment {
 
         seriesList = new ArrayList<>();
         recyclerView = view.findViewById(R.id.recyclerView);
-        progressBar = view.findViewById(R.id.progressBar);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.suppressLayout(true);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         seriesAdapter = new SeriesAdapter(getActivity(), seriesList);
-        hot = view.findViewById(R.id.nofilter);
+
 
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
+
+        swipeRefreshLayout.setRefreshing(true);
+
 
         // Refresh  the layout
         swipeRefreshLayout.setOnRefreshListener(
@@ -162,7 +162,6 @@ public class ExploreFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    progressBar.setVisibility(View.GONE);
                     Series_Model series_model = dataSnapshot.getValue(Series_Model.class);
                     Log.d("SERIES", "onDataChange: " + series_model.getId());
                     seriesList.add(series_model);
@@ -170,6 +169,7 @@ public class ExploreFragment extends Fragment {
 //                Collections.shuffle(seriesList);
                 recyclerView.setAdapter(seriesAdapter);
                 seriesAdapter.notifyDataSetChanged();
+                swipeRefreshLayout.setRefreshing(false);
 
 
             }
@@ -180,6 +180,24 @@ public class ExploreFragment extends Fragment {
             }
         });
 
+
+
+//        TextView hot,highToLow,lowToHigh,lowToHigh2,lowToHigh3,lowToHigh4,lowToHigh10,lowToHigh11,lowToHigh9,lowToHigh13,lowToHigh14;
+
+
+
+        hot = view.findViewById(R.id.nofilter);
+        highToLow = view.findViewById(R.id.highToLow);
+        lowToHigh = view.findViewById(R.id.lowToHigh);
+
+        lowToHigh2 = view.findViewById(R.id.lowToHigh2);
+        lowToHigh3 = view.findViewById(R.id.lowToHigh3);
+        lowToHigh4 = view.findViewById(R.id.lowToHigh4);
+        lowToHigh10 = view.findViewById(R.id.lowToHigh10);
+        lowToHigh11 = view.findViewById(R.id.lowToHigh11);
+        lowToHigh9 = view.findViewById(R.id.lowToHigh9);
+        lowToHigh13 = view.findViewById(R.id.lowToHigh13);
+        lowToHigh14 = view.findViewById(R.id.lowToHigh14);
 
         hot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,9 +213,133 @@ public class ExploreFragment extends Fragment {
         });
 
 
+        highToLow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+
+
+        lowToHigh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+
+        lowToHigh2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+        lowToHigh3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+        lowToHigh4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+        lowToHigh10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+        lowToHigh11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+        lowToHigh9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+        lowToHigh13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+        lowToHigh14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                swipeRefreshLayout.setRefreshing(true);
+                Collections.shuffle(seriesList);
+                recyclerView.setAdapter(seriesAdapter);
+                seriesAdapter.notifyDataSetChanged();
+                onRefresh();
+            }
+        });
+
+
         return view;
     }
-
 
 
     public void onRefresh() {

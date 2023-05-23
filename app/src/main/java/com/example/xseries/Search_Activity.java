@@ -1,26 +1,27 @@
 package com.example.xseries;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.example.xseries.Adapter.SeriesAdapter;
 import com.example.xseries.Model.Series_Model;
+import com.example.xseries.View.MainActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +29,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Search_Activity extends AppCompatActivity {
@@ -41,6 +41,14 @@ public class Search_Activity extends AppCompatActivity {
 
     EditText query;
     Button searchBtn;
+    SwipeRefreshLayout swipeRefreshLayout;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Search_Activity.this, MainActivity.class);
+        startActivity(intent);
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -58,13 +66,40 @@ public class Search_Activity extends AppCompatActivity {
         query = findViewById(R.id.searchEditText);
         searchBtn = findViewById(R.id.searchButton);
 
+        query.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    if (!query.getText().toString().isEmpty()) {
+                        filterVids(query.getText().toString());
+                        seriesAdapter.filtterList(seriesList);
+                        swipeRefreshLayout.setRefreshing(false);
+
+                    } else {
+                        Toast.makeText(Search_Activity.this, "Please enter your query", Toast.LENGTH_SHORT).show();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshLayout);
+
+
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!query.getText().toString().isEmpty()){
+
+                swipeRefreshLayout.setRefreshing(true);
+
+
+                if (!query.getText().toString().isEmpty()) {
                     filterVids(query.getText().toString());
                     seriesAdapter.filtterList(seriesList);
-                }else{
+                    swipeRefreshLayout.setRefreshing(false);
+
+                } else {
                     Toast.makeText(Search_Activity.this, "Please enter your query", Toast.LENGTH_SHORT).show();
                 }
 
@@ -72,14 +107,10 @@ public class Search_Activity extends AppCompatActivity {
         });
 
 
-
-
-
-
     }
 
 
-    public void filterVids(String text){
+    public void filterVids(String text) {
         DatabaseReference fetchLogin = FirebaseDatabase.getInstance().getReference().child("Videos");
         seriesList.clear();
         fetchLogin.addListenerForSingleValueEvent(new ValueEventListener() {

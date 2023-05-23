@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,6 +35,7 @@ public class Video_Input extends AppCompatActivity {
         setContentView(R.layout.activity_video_input);
 
         etUrl = findViewById(R.id.et_url);
+        etTitle = findViewById(R.id.et_title);
 
         upBtn = findViewById(R.id.up_button);
 
@@ -82,11 +84,10 @@ public class Video_Input extends AppCompatActivity {
                     Series_Model series_model = new Series_Model(token, url, url, mins, filename);
 
                     uploadVid.child(token).setValue(series_model);
+                    Toast.makeText(Video_Input.this, "Video Uploaded", Toast.LENGTH_SHORT).show();
 
                 }
 
-                Intent intent = new Intent(Video_Input.this,MainActivity.class);
-                startActivity(intent);
 
             }
 

@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.xseries.Adapter.SeriesAdapter;
 import com.example.xseries.Model.Series_Model;
@@ -67,6 +68,7 @@ public class Video_Player extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     SeriesAdapter seriesAdapter;
     RelativeLayout btmPlayerView;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -87,6 +89,11 @@ public class Video_Player extends AppCompatActivity {
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         seriesAdapter = new SeriesAdapter(getApplicationContext(), seriesList);
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshLayout);
+
+        swipeRefreshLayout.setRefreshing(true);
+
 
         if (getIntent().hasExtra("url")) {
 
@@ -136,6 +143,7 @@ public class Video_Player extends AppCompatActivity {
                 Collections.shuffle(seriesList);
                 recyclerView.setAdapter(seriesAdapter);
                 seriesAdapter.notifyDataSetChanged();
+                swipeRefreshLayout.setRefreshing(false);
 
 
             }
